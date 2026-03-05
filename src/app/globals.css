@@ -204,6 +204,23 @@ body[data-cursor-contract] .layer__red {
   min-height: 50vh !important;
 }
 
+/* Spacer: compensates for main layer's client (3D earth) height so motto__red aligns with motto */
+.motto__red-spacer {
+  min-height: 195vh;
+  pointer-events: none;
+}
+
+/* Motto reveal text: force black */
+.layer.layer__red .motto.motto__red .motto_content_heading,
+.layer.layer__red .motto.motto__red .motto_content_heading .reveal-pseudo::before {
+  color: #0d0d0d !important;
+}
+
+/* Motto red layer: match main motto height for scroll sync (hero-style reveal) */
+.motto.motto__red {
+  min-height: 50vh !important;
+}
+
 .contact {
   padding-top: 15vh !important;
   padding-bottom: 4vh !important;

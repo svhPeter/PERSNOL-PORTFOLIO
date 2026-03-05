@@ -918,10 +918,10 @@ export default function PortfolioBody() {
                         >
                           MY MOTTO
                         </p>
-                        <p className="text-center motto_content_heading motto-light h1 mb-0">
-                          <span className="d-block">GOOD DESIGN</span>
-                          <span className="d-block">IS HONEST</span>
-                        </p>
+                            <p className="text-center motto_content_heading motto-light h1 mb-0">
+                              <span className="d-block">GOOD DESIGN</span>
+                              <span className="d-block">IS HONEST</span>
+                            </p>
                         <p className="desc text-center mb-0" style={mottoDescStyle}>
                           Dieter Rams
                         </p>
@@ -1674,7 +1674,29 @@ export default function PortfolioBody() {
                 </div>
               </div>
             </div>
-
+            {/* Spacer: red layer lacks main layer's 3D earth height; pushes motto__red to align with motto */}
+            <div className="motto__red-spacer" aria-hidden />
+            <div className="motto motto__red">
+              <div className="motto_content container_content">
+                <div className="row justify-content-center align-items-center">
+                  <div className="col-lg-8 col-12 motto_content_inner">
+                    <div>
+                      <p className="text-center mb-0 h6 text-uppercase text-dark">
+                        <span className="reveal-pseudo" data-reveal="MY MOTTO" aria-hidden />
+                      </p>
+                      <p className="text-center motto_content_heading motto-dark h1 mb-0">
+                        <span className="reveal-pseudo d-block" data-reveal="NOT ALL" aria-hidden />
+                        <span className="reveal-pseudo d-block" data-reveal="HONEST DESIGN" aria-hidden />
+                        <span className="reveal-pseudo d-block" data-reveal="IS GOOD" aria-hidden />
+                      </p>
+                      <p className="desc text-center mb-0 text-dark">
+                        <span className="reveal-pseudo" data-reveal="Dieter Rams" aria-hidden />
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
             <div className="contact contact__red container_content op-0">
               <div className="row">
                 <div className="col-lg-3 col-sm-5 offset-lg-2 offset-sm-1 col-12">
