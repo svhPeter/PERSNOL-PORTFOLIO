@@ -25,6 +25,7 @@ export default function PortfolioBody() {
       clearTimeout(t)
     }
   }, [])
+
   const pageLoadingStyle = {
     position: "fixed" as const,
     top: 0,
@@ -790,7 +791,7 @@ export default function PortfolioBody() {
                         </div>
                         <div className="col-lg-3 col-sm-4 text-dark d-sm-block d-none">
                           <p className="mb-0 desc">
-                            AI-powered content and image compressor free online tool for creators.
+                            AI-powered content and image compressor free online tool for creators. www.aibuddy.design/image-compressor
                           </p>
                         </div>
                       </div>
@@ -1567,7 +1568,7 @@ export default function PortfolioBody() {
                           </div>
                         </div>
                         <div className="col-lg-3 col-sm-4 text-dark col-12 d-lg-none d-block">
-                          <p className="reveal-pseudo mb-0 desc" data-reveal="AI-powered content and image compressor free online tool for creators." aria-hidden />
+                          <p className="reveal-pseudo mb-0 desc" data-reveal="AI-powered content and image compressor free online tool for creators. www.aibuddy.design/image-compressor" aria-hidden />
                         </div>
                       </div>
                     </div>
@@ -1579,7 +1580,7 @@ export default function PortfolioBody() {
                           </div>
                         </div>
                         <div className="col-lg-3 col-sm-4 col-12 d-sm-none d-block">
-                          <p className="reveal-pseudo mb-0 desc" data-reveal="AI-powered content and image compressor free online tool for creators." aria-hidden />
+                          <p className="reveal-pseudo mb-0 desc" data-reveal="AI-powered content and image compressor free online tool for creators. www.aibuddy.design/image-compressor" aria-hidden />
                         </div>
                       </div>
                     </div>

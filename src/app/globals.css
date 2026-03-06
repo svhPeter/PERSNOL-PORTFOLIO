@@ -290,7 +290,7 @@ body[data-cursor-contract] .layer__red {
 @media (max-width: 767px) {
   .contact {
     padding-top: 4rem !important;
-    padding-bottom: 2rem !important;
+    padding-bottom: 9rem !important; /* space above fixed PRESS button */
   }
 }
 
@@ -463,6 +463,11 @@ body[data-cursor-contract] .layer__red {
     height: auto !important;
   }
 
+  /* Gap between "My focus" heading and SHOP-POS etc. on mobile */
+  .client .client_list {
+    margin-top: 2rem;
+  }
+
   /* Projects / client_list: prevent overlap, allow wrap */
   .client_list_inner .heading-mask {
     min-height: 4rem;
@@ -496,6 +501,48 @@ body[data-cursor-contract] .layer__red {
     max-width: 100%;
     padding-left: 1rem;
     padding-right: 1rem;
+  }
+
+  /* Contact: mobile pe email/phone clearly visible (minhpham-style) */
+  .contact .contact_info .heading-mask_el__masking {
+    display: none !important;
+  }
+  .contact .contact_content .contact_info.contact_info__top {
+    margin-bottom: 1.25rem;
+  }
+  .contact .contact_content .contact_info:not(.contact_info__top) {
+    margin-top: 0;
+  }
+  .contact .contact_info .heading-mask_el,
+  .contact .contact_info .heading-mask {
+    min-height: auto !important;
+    height: auto !important;
+    padding: 0.5rem 0 !important;
+  }
+  .contact .contact_content .contact_info .heading-mask_el__deep,
+  .contact .contact_content .contact_info .heading-mask_el__deep .sub-content,
+  .contact .contact_content .contact_info .heading-mask_el__deep .h4 {
+    color: #b7ab98 !important;
+    opacity: 1 !important;
+    font-size: 1rem !important;
+  }
+
+  /* Work Experience (testimonials) layout on mobile */
+  .testimonials {
+    padding-bottom: 5rem;
+  }
+  .testimonials .work-exp-list > div {
+    margin-bottom: 1.25rem;
+  }
+  .testimonials .work-exp-list > div:last-child {
+    margin-bottom: 0;
+  }
+  .testimonials .work-exp-visual {
+    margin-top: 1.5rem;
+  }
+  .testimonials .sub-content {
+    color: #b7ab98 !important;
+    opacity: 1 !important;
   }
 
   /* Larger touch target for PRESS button */
