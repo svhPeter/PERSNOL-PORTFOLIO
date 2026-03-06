@@ -376,3 +376,132 @@ body[data-cursor-contract] .layer__red {
   content: attr(data-reveal);
   white-space: pre-line;
 }
+
+/* ===== RESPONSIVE: Tablet (768px - 1199px) ===== */
+@media (min-width: 768px) and (max-width: 1199px) {
+  .earth-canvas {
+    width: 50vw;
+    height: 50vw;
+    top: 50%;
+    left: 50%;
+  }
+  .motto__red-spacer {
+    min-height: 150vh;
+  }
+  .client_list {
+    min-height: 70vh;
+  }
+}
+
+/* ===== RESPONSIVE: Mobile (< 768px) ===== */
+@media (max-width: 767px) {
+  .earth-canvas {
+    width: 70vw;
+    height: 70vw;
+    max-width: 320px;
+    max-height: 320px;
+    top: 50%;
+    left: 50%;
+  }
+  .motto__red-spacer {
+    min-height: 120vh;
+  }
+  .motto_content_heading {
+    white-space: normal;
+    font-size: clamp(32px, 8vw, 56px);
+  }
+  .client_list {
+    min-height: 60vh;
+  }
+  .container,
+  .container_content {
+    max-width: 100%;
+    box-sizing: border-box;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  html, body {
+    overflow-x: hidden;
+  }
+  .footer_sound {
+    right: 1rem;
+    top: 90%;
+    font-size: 0.75rem;
+  }
+  .header a,
+  .header_menu_item a {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+  .footer_socials a,
+  .social-link a {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  /* WHAT I DO: prevent overlapping headings (UI/UX, Full Stack, etc.) */
+  .about_ido .heading-mask {
+    min-height: 4.5rem;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  .about_ido .heading-mask:last-child {
+    border-bottom: none;
+  }
+  .about_ido .heading-mask .h1,
+  .about_ido .heading-mask h2 {
+    font-size: clamp(1.5rem, 6vw, 2.5rem) !important;
+    line-height: 1.2 !important;
+    margin-bottom: 0.25rem !important;
+  }
+  .about_ido .heading-mask_el,
+  .about_ido .simple-masking,
+  .about_ido .simple-masking_el {
+    min-height: auto !important;
+    height: auto !important;
+  }
+
+  /* Projects / client_list: prevent overlap, allow wrap */
+  .client_list_inner .heading-mask {
+    min-height: 4rem;
+    padding: 0.6rem 0;
+  }
+  .client_list_inner .heading-mask .h1,
+  .client_list_inner .heading-mask h2 {
+    font-size: clamp(1.25rem, 5vw, 2rem) !important;
+    white-space: normal !important;
+    word-break: break-word;
+  }
+  .client_list_inner .none-break {
+    white-space: normal !important;
+  }
+
+  /* Work experience headings */
+  .work_experience .heading-mask,
+  .work_history_heading .heading-mask {
+    min-height: 3.5rem;
+    padding: 0.5rem 0;
+  }
+
+  /* Fuller width on mobile - reduce offsets */
+  .row { --bs-gutter-x: 0.75rem; }
+  .offset-lg-2, .offset-sm-1 { margin-left: 0 !important; }
+  .col-12 { padding-left: 0.5rem !important; padding-right: 0.5rem !important; }
+
+  /* Motto / contact full width */
+  .motto_content_inner_wrap,
+  .contact_content {
+    max-width: 100%;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  /* Larger touch target for PRESS button */
+  .btn_clipPath {
+    min-width: 48px;
+    min-height: 48px;
+    padding: 0.75rem;
+  }
+}

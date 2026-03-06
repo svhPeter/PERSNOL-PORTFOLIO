@@ -36,6 +36,11 @@ export default function RootLayout({ children }) {
         <link href="/css/app.css" rel="stylesheet" />
       </head>
       <body className="home">
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){var noop=function(){return this;};window.videojs=window.videojs||function(){return{on:noop,off:noop,one:noop,ready:function(f){f&&setTimeout(f,0);return this},trigger:noop,addClass:noop,removeClass:noop,el:function(){return document.createElement("div")},dispose:noop};};})();`,
+          }}
+        />
         <Script src="/js/caching.js" strategy="beforeInteractive" />
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-79VFDFP12E"
@@ -80,8 +85,13 @@ export default function RootLayout({ children }) {
             }
           })();`}
         </Script>
-        <Script src="/js/vendor.bundle.js" strategy="afterInteractive" />
-        <Script src="/js/app.bundle.js" strategy="afterInteractive" />
+        <Script id="bundle-loader" strategy="afterInteractive">
+          {`(function(){
+            function load(url,cb){var s=document.createElement('script');s.src=url;s.onload=cb||function(){};s.onerror=function(){};(document.body||document.documentElement).appendChild(s);}
+            function go(){if(!document.body){setTimeout(go,20);return;}load('/js/vendor.bundle.js',function(){load('/js/app.bundle.js');});}
+            go();
+          })();`}
+        </Script>
         <Script src="/js/email-decode.min.js" strategy="afterInteractive" />
         <Script id="preloader-scroll" strategy="afterInteractive">
           {`
