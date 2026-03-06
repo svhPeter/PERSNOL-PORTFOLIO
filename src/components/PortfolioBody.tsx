@@ -221,9 +221,9 @@ export default function PortfolioBody() {
                       </p>
                       <div className="about_content_desc h2">
                         <div className="scroll-paragraph-mask js-scroll-paragraph-mask">
-                          I&apos;m a <strong>selectively skilled</strong> developer
-                          with strong focus on producing high quality &amp;
-                          impactful digital products.
+                          I&apos;m a <strong>developer focused</strong> on building
+                          clean practical digital products that are useful and impactful &amp;
+                          using modern engineering workflows.
                         </div>
                       </div>
                     </div>
