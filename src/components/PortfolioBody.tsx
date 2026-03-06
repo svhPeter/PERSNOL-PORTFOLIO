@@ -4,6 +4,7 @@ import dynamic from 'next/dynamic'
 import Loader from './Loader'
 import ShopPOSAnimation from './ShopPOSAnimation'
 import SoundToggle from './SoundToggle'
+import EarthErrorBoundary from './EarthErrorBoundary'
 
 const Earth = dynamic(() => import('./Earth'), {
   ssr: false,
@@ -674,9 +675,11 @@ export default function PortfolioBody() {
                 <div className="client_list_3d" data-lenis-speed=".1">
                   <div className="earth-canvas">
                     {mounted && (
-                      <Suspense fallback={<div className="earth-canvas earth-canvas--loading" style={{ minHeight: '50vw' }} />}>
-                        <Earth />
-                      </Suspense>
+                      <EarthErrorBoundary fallback={<div className="earth-canvas earth-canvas--loading" style={{ minHeight: '50vw' }} />}>
+                        <Suspense fallback={<div className="earth-canvas earth-canvas--loading" style={{ minHeight: '50vw' }} />}>
+                          <Earth />
+                        </Suspense>
+                      </EarthErrorBoundary>
                     )}
                   </div>
                   <div className="js-client_list_3d client_list_3d_inner" />

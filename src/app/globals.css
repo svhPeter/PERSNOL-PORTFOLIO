@@ -267,7 +267,7 @@ body[data-cursor-contract] .layer__red {
 
 /* Spacer: compensates for main layer's client (3D earth) height so motto__red aligns with motto */
 .motto__red-spacer {
-  min-height: 195vh;
+  min-height: 210vh;
   pointer-events: none;
 }
 
