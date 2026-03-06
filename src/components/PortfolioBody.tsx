@@ -1,5 +1,7 @@
-import { Suspense } from 'react'
+'use client'
+import { Suspense, useState, useEffect } from 'react'
 import dynamic from 'next/dynamic'
+import Loader from './Loader'
 import ShopPOSAnimation from './ShopPOSAnimation'
 import SoundToggle from './SoundToggle'
 
@@ -9,6 +11,19 @@ const Earth = dynamic(() => import('./Earth'), {
 })
 
 export default function PortfolioBody() {
+  const [mounted, setMounted] = useState(false)
+  const [showPreloader, setShowPreloader] = useState(true)
+  useEffect(() => { setMounted(true) }, [])
+  useEffect(() => {
+    const hide = () => setShowPreloader(false)
+    const startBtn = document.getElementById('js-page-loading_start')
+    if (startBtn) startBtn.addEventListener('click', hide)
+    const t = setTimeout(hide, 3000)
+    return () => {
+      if (startBtn) startBtn.removeEventListener('click', hide)
+      clearTimeout(t)
+    }
+  }, [])
   const pageLoadingStyle = {
     position: "fixed" as const,
     top: 0,
@@ -66,6 +81,7 @@ export default function PortfolioBody() {
   return (
     <div className="home">
       {/* Page loading overlay */}
+      {showPreloader && (
       <div
         className="page-loading js-page-loading"
         style={pageLoadingStyle}
@@ -95,6 +111,7 @@ export default function PortfolioBody() {
               alt="logo"
             />
           </div>
+          <Loader />
           <button
             id="js-page-loading_start"
             className="body-text page-loading_start"
@@ -106,6 +123,7 @@ export default function PortfolioBody() {
           </span>
         </div>
       </div>
+      )}
 
       {/* Header */}
       <header className="header js-header">
@@ -655,7 +673,11 @@ export default function PortfolioBody() {
               <div className="client_list">
                 <div className="client_list_3d" data-lenis-speed=".1">
                   <div className="earth-canvas">
-                    <Earth />
+                    {mounted && (
+                      <Suspense fallback={<div className="earth-canvas earth-canvas--loading" style={{ minHeight: '50vw' }} />}>
+                        <Earth />
+                      </Suspense>
+                    )}
                   </div>
                   <div className="js-client_list_3d client_list_3d_inner" />
                   <div className="client_list_3d_image">
@@ -923,7 +945,7 @@ export default function PortfolioBody() {
                               <span className="d-block">IS HONEST</span>
                             </p>
                         <p className="desc text-center mb-0" style={mottoDescStyle}>
-                          Dieter Rams
+                          This UI design inspired by Minh Pham
                         </p>
                       </div>
                     </div>
@@ -1019,17 +1041,18 @@ export default function PortfolioBody() {
                       </li>
                       <li className="heading-mask social-link js-cursor-contract heading-mask__now h3">
                         <div className="heading-mask_el heading-mask_el__deep">
-                          <a href="#" className="contact_link" target="_blank">
-                            Facebook
+                          <a href="https://x.com/svhdavid" className="contact_link" target="_blank" rel="noopener noreferrer">
+                            Twitter
                           </a>
                         </div>
                         <div className="heading-mask_el heading-mask_el__masking">
                           <a
-                            href="#"
+                            href="https://x.com/svhdavid"
                             className="text-dark contact_link"
                             target="_blank"
+                            rel="noopener noreferrer"
                           >
-                            Mostly dog stories
+                            Tweets
                           </a>
                         </div>
                       </li>
@@ -1061,12 +1084,7 @@ export default function PortfolioBody() {
                               className="sub-content"
                               href="mailto:sami.vh@yahoo.com"
                             >
-                              <span
-                                className="__cf_email__"
-                                data-cfemail="f4999d9a9c849c9599da9091879d939ab49399959d98da979b99"
-                              >
-                                sami.vh@yahoo.com
-                              </span>
+                              sami.vh@yahoo.com
                             </a>
                           </div>
                           <div className="heading-mask_el heading-mask_el__masking">
@@ -1077,12 +1095,7 @@ export default function PortfolioBody() {
                               className="sub-content text-dark"
                               href="mailto:sami.vh@yahoo.com"
                             >
-                              <span
-                                className="__cf_email__"
-                                data-cfemail="e38e8a8d8b938b828ecd8786908a848da3848e828a8fcd808c8e"
-                              >
-                                sami.vh@yahoo.com
-                              </span>
+                              sami.vh@yahoo.com
                             </a>
                           </div>
                         </div>
@@ -1093,9 +1106,9 @@ export default function PortfolioBody() {
                             <span className="h4 d-block">Phone</span>{" "}
                             <a
                               className="sub-content"
-                              href="tel:+923320548592"
+                              href="tel:+1-315-497-8688"
                             >
-                              +923320548592
+                              +1-315-497-8688
                             </a>
                           </div>
                           <div className="heading-mask_el heading-mask_el__masking">
@@ -1104,9 +1117,9 @@ export default function PortfolioBody() {
                             </span>{" "}
                             <a
                               className="sub-content text-dark"
-                              href="tel:+923320548592"
+                              href="tel:+1-315-497-8688"
                             >
-                              +923320548592
+                              +1-315-497-8688
                             </a>
                           </div>
                         </div>
@@ -1135,7 +1148,7 @@ export default function PortfolioBody() {
         <div
           className="layer layer__red js-masker"
           aria-hidden="true"
-          {...({ inert: 'true' } as unknown as React.HTMLAttributes<HTMLDivElement>)}
+          inert
           style={{ userSelect: 'none', pointerEvents: 'none' }}
         >
           <div className="container">
@@ -1690,7 +1703,7 @@ export default function PortfolioBody() {
                         <span className="reveal-pseudo d-block" data-reveal="IS GOOD" aria-hidden />
                       </p>
                       <p className="desc text-center mb-0 text-dark">
-                        <span className="reveal-pseudo" data-reveal="Dieter Rams" aria-hidden />
+                        <span className="reveal-pseudo" data-reveal="This UI design inspired by Minh Pham" aria-hidden />
                       </p>
                     </div>
                   </div>
@@ -1726,8 +1739,8 @@ export default function PortfolioBody() {
                       </a>
                     </li>
                     <li className="heading-mask social-link js-cursor-contract heading-mask__now h3">
-                      <a href="#" className="text-dark contact_link" target="_blank" tabIndex={-1} aria-hidden>
-                        <span className="reveal-pseudo" data-reveal="Mostly dog stories" aria-hidden />
+                      <a href="https://x.com/svhdavid" className="text-dark contact_link" target="_blank" rel="noopener noreferrer" tabIndex={-1} aria-hidden>
+                        <span className="reveal-pseudo" data-reveal="Tweets" aria-hidden />
                       </a>
                     </li>
                     <li className="heading-mask social-link js-cursor-contract heading-mask__now h3">
@@ -1743,15 +1756,15 @@ export default function PortfolioBody() {
                       <div className="heading-mask contact_info contact_info__red contact_info__top js-cursor-contract heading-mask__now">
                         <span className="reveal-pseudo h4 d-block text-dark" data-reveal="100% chance I read it" aria-hidden />{" "}
                         <a className="sub-content text-dark" href="mailto:sami.vh@yahoo.com" tabIndex={-1} aria-hidden>
-                          <span className="reveal-pseudo __cf_email__" data-reveal="sami.vh@yahoo.com" data-cfemail="f4999d9a9c849c9599da9091879d939ab49399959d98da979b99" aria-hidden />
+                          <span className="reveal-pseudo" data-reveal="sami.vh@yahoo.com" aria-hidden />
                         </a>
                       </div>
                     </div>
                     <div className="col-lg-12 col-sm-5 col-12">
                       <div className="heading-mask contact_info contact_info__red js-cursor-contract heading-mask__now">
                         <span className="reveal-pseudo h4 d-block text-dark" data-reveal="90% chance I don't pickup" aria-hidden />{" "}
-                        <a className="sub-content text-dark" href="tel:+923320548592" tabIndex={-1} aria-hidden>
-                          <span className="reveal-pseudo" data-reveal="+923320548592" aria-hidden />
+                        <a className="sub-content text-dark" href="tel:+1-315-497-8688" tabIndex={-1} aria-hidden>
+                          <span className="reveal-pseudo" data-reveal="+1-315-497-8688" aria-hidden />
                         </a>
                       </div>
                     </div>

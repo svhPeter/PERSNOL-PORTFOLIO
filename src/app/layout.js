@@ -49,60 +49,6 @@ export default function RootLayout({ children }) {
             gtag('config', 'G-79VFDFP12E');
           `}
         </Script>
-        <Script src="/js/vendor.bundle.js" strategy="afterInteractive" />
-        <Script id="videojs-guard" strategy="afterInteractive">
-          {`(function(){
-            var stub = { ready: function(f){ (f&&f)(); return this; }, on: function(){ return this; }, play: function(){ return this; }, pause: function(){ return this; } };
-            if (typeof window.videojs !== 'undefined') {
-              var orig = window.videojs;
-              window.videojs = function(el, opts) {
-                var target = typeof el === 'string' ? document.getElementById(el) : el;
-                if (!target || !target.tagName) return stub;
-                try {
-                  var result = orig.apply(this, arguments);
-                  return (result && typeof result.on === 'function') ? result : stub;
-                } catch (e) {
-                  return stub;
-                }
-              };
-            } else {
-              window.videojs = function(){ return stub; };
-            }
-          })();`}
-        </Script>
-        <Script id="videojs-fix" strategy="afterInteractive">
-          {`(function(){
-            var ensure = function(id) {
-              if (!document.getElementById(id)) {
-                var v = document.createElement('video');
-                v.id = id;
-                v.setAttribute('playsinline','');
-                v.setAttribute('muted','');
-                v.setAttribute('loop','');
-                v.setAttribute('preload','none');
-                v.style.cssText = 'position:absolute;width:1px;height:1px;opacity:0;visibility:hidden;pointer-events:none';
-                document.body.appendChild(v);
-              }
-            };
-            ensure('videoPlayer');
-            ensure('videoPlayer_red');
-          })();`}
-        </Script>
-        <Script id="app-bundle-loader" strategy="afterInteractive">
-          {`(function(){
-            function loadAppBundle() {
-              var s = document.createElement('script');
-              s.src = '/js/app.bundle.js';
-              s.async = false;
-              document.body.appendChild(s);
-            }
-            if (document.readyState === 'complete') {
-              setTimeout(loadAppBundle, 300);
-            } else {
-              window.addEventListener('load', function(){ setTimeout(loadAppBundle, 300); });
-            }
-          })();`}
-        </Script>
         <Script id="cursor-video-fix" strategy="afterInteractive">
           {`(function(){
             var CONTRACT_R = 56;
@@ -134,6 +80,8 @@ export default function RootLayout({ children }) {
             }
           })();`}
         </Script>
+        <Script src="/js/vendor.bundle.js" strategy="afterInteractive" />
+        <Script src="/js/app.bundle.js" strategy="afterInteractive" />
         <Script src="/js/email-decode.min.js" strategy="afterInteractive" />
         <Script id="preloader-scroll" strategy="afterInteractive">
           {`
