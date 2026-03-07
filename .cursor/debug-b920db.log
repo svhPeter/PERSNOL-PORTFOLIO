@@ -1,0 +1,57 @@
+{"sessionId":"b920db","hypothesisId":"A","location":"ShopPOSAnimation.tsx:goToScene","message":"scene change","data":{"from":2,"to":3},"timestamp":1772907971481}
+{"sessionId":"b920db","hypothesisId":"A","location":"ShopPOSAnimation.tsx:goToScene","message":"scene change","data":{"from":2,"to":3},"timestamp":1772907971508}
+{"sessionId":"b920db","hypothesisId":"E","location":"PortfolioBody.tsx","message":"visibilitychange","data":{"hidden":false,"mem":73498211},"timestamp":1772907977806}
+{"sessionId":"b920db","hypothesisId":"A","location":"ShopPOSAnimation.tsx:goToScene","message":"scene change","data":{"from":3,"to":4},"timestamp":1772907978159}
+{"sessionId":"b920db","hypothesisId":"A","location":"ShopPOSAnimation.tsx:goToScene","message":"scene change","data":{"from":3,"to":4},"timestamp":1772907978207}
+{"sessionId":"b920db","hypothesisId":"E","location":"PortfolioBody.tsx","message":"visibilitychange","data":{"hidden":false,"mem":102185092},"timestamp":1772907978454}
+{"sessionId":"b920db","hypothesisId":"A","location":"ShopPOSAnimation.tsx:goToScene","message":"scene change","data":{"from":4,"to":0},"timestamp":1772907980581}
+{"sessionId":"b920db","hypothesisId":"A","location":"ShopPOSAnimation.tsx:goToScene","message":"scene change","data":{"from":4,"to":0},"timestamp":1772907980582}
+{"sessionId":"b920db","hypothesisId":"A","location":"ShopPOSAnimation.tsx:goToScene","message":"scene init","data":{"to":0},"timestamp":1772907982289}
+{"sessionId":"b920db","hypothesisId":"C","location":"PortfolioBody.tsx","message":"window.onerror","data":{"message":"Uncaught TypeError: Failed to execute 'appendChild' on 'Node': parameter 1 is not of type 'Node'.","filename":"http://localhost:3000/js/app.bundle.js","lineno":1,"mem":120959492},"timestamp":1772907982549}
+{"sessionId":"b920db","hypothesisId":"A","location":"ShopPOSAnimation.tsx:goToScene","message":"scene init","data":{"to":0},"timestamp":1772907982586}
+{"sessionId":"b920db","hypothesisId":"C","location":"PortfolioBody.tsx","message":"window.onerror","data":{"message":"Uncaught TypeError: Cannot read properties of undefined (reading 'on')","filename":"http://localhost:3000/js/app.bundle.js","lineno":1,"mem":122211173},"timestamp":1772907982621}
+{"sessionId":"b920db","hypothesisId":"A","location":"ShopPOSAnimation.tsx:goToScene","message":"scene change","data":{"from":0,"to":1},"timestamp":1772907987581}
+{"sessionId":"b920db","hypothesisId":"A","location":"ShopPOSAnimation.tsx:goToScene","message":"scene change","data":{"from":0,"to":1},"timestamp":1772907987582}
+{"sessionId":"b920db","hypothesisId":"A","location":"ShopPOSAnimation.tsx:goToScene","message":"scene change","data":{"from":0,"to":1},"timestamp":1772907987602}
+{"sessionId":"b920db","hypothesisId":"A","location":"ShopPOSAnimation.tsx:goToScene","message":"scene change","data":{"from":0,"to":1},"timestamp":1772907987670}
+{"sessionId":"b920db","hypothesisId":"E","location":"PortfolioBody.tsx","message":"visibilitychange","data":{"hidden":false,"mem":104297339},"timestamp":1772907989703}
+{"sessionId":"b920db","hypothesisId":"E","location":"PortfolioBody.tsx","message":"visibilitychange","data":{"hidden":true,"mem":91161638},"timestamp":1772907991392}
+{"sessionId":"b920db","hypothesisId":"E","location":"PortfolioBody.tsx","message":"visibilitychange","data":{"hidden":false,"mem":93187210},"timestamp":1772907992493}
+{"sessionId":"b920db","hypothesisId":"A","location":"ShopPOSAnimation.tsx:goToScene","message":"scene change","data":{"from":1,"to":2},"timestamp":1772907993140}
+{"sessionId":"b920db","hypothesisId":"A","location":"ShopPOSAnimation.tsx:goToScene","message":"scene change","data":{"from":1,"to":2},"timestamp":1772907993141}
+{"sessionId":"b920db","hypothesisId":"E","location":"PortfolioBody.tsx","message":"visibilitychange","data":{"hidden":false,"mem":104212300},"timestamp":1772907993241}
+{"sessionId":"b920db","hypothesisId":"E","location":"PortfolioBody.tsx","message":"visibilitychange","data":{"hidden":true,"mem":96018963},"timestamp":1772907994940}
+{"sessionId":"b920db","hypothesisId":"E","location":"PortfolioBody.tsx","message":"visibilitychange","data":{"hidden":false,"mem":83958946},"timestamp":1772907996282}
+{"sessionId":"b920db","hypothesisId":"E","location":"PortfolioBody.tsx","message":"visibilitychange","data":{"hidden":false,"mem":105220699},"timestamp":1772907998324}
+{"sessionId":"b920db","hypothesisId":"E","location":"PortfolioBody.tsx","message":"visibilitychange","data":{"hidden":true,"mem":80739403},"timestamp":1772908000111}
+{"sessionId":"b920db","hypothesisId":"A","location":"ShopPOSAnimation.tsx:goToScene","message":"scene change","data":{"from":2,"to":3},"timestamp":1772908000673}
+{"sessionId":"b920db","hypothesisId":"A","location":"ShopPOSAnimation.tsx:goToScene","message":"scene change","data":{"from":2,"to":3},"timestamp":1772908000674}
+{"sessionId":"b920db","hypothesisId":"E","location":"PortfolioBody.tsx","message":"visibilitychange","data":{"hidden":false,"mem":102537339},"timestamp":1772908001926}
+{"sessionId":"b920db","hypothesisId":"E","location":"PortfolioBody.tsx","message":"visibilitychange","data":{"hidden":false,"mem":104768476},"timestamp":1772908002643}
+{"sessionId":"b920db","hypothesisId":"E","location":"PortfolioBody.tsx","message":"visibilitychange","data":{"hidden":false,"mem":103301391},"timestamp":1772908002769}
+{"sessionId":"b920db","hypothesisId":"A","location":"ShopPOSAnimation.tsx:goToScene","message":"scene init","data":{"to":0},"timestamp":1772908002807}
+{"sessionId":"b920db","hypothesisId":"A","location":"ShopPOSAnimation.tsx:goToScene","message":"scene init","data":{"to":0},"timestamp":1772908002808}
+{"sessionId":"b920db","hypothesisId":"D","location":"PortfolioBody.tsx","message":"scroll tick","data":{"count":1,"mem":137135360},"timestamp":1772908006546}
+{"sessionId":"b920db","hypothesisId":"D","location":"PortfolioBody.tsx","message":"scroll tick","data":{"count":51,"mem":137583760},"timestamp":1772908007413}
+{"sessionId":"b920db","hypothesisId":"A","location":"ShopPOSAnimation.tsx:goToScene","message":"scene change","data":{"from":3,"to":4},"timestamp":1772908007580}
+{"sessionId":"b920db","hypothesisId":"A","location":"ShopPOSAnimation.tsx:goToScene","message":"scene change","data":{"from":3,"to":4},"timestamp":1772908007581}
+{"sessionId":"b920db","hypothesisId":"A","location":"ShopPOSAnimation.tsx:goToScene","message":"scene change","data":{"from":0,"to":1},"timestamp":1772908007941}
+{"sessionId":"b920db","hypothesisId":"A","location":"ShopPOSAnimation.tsx:goToScene","message":"scene change","data":{"from":0,"to":1},"timestamp":1772908007942}
+{"sessionId":"b920db","hypothesisId":"D","location":"PortfolioBody.tsx","message":"scroll tick","data":{"count":101,"mem":147353496},"timestamp":1772908009514}
+{"sessionId":"b920db","hypothesisId":"D","location":"PortfolioBody.tsx","message":"scroll tick","data":{"count":151,"mem":82167946},"timestamp":1772908010446}
+{"sessionId":"b920db","hypothesisId":"E","location":"PortfolioBody.tsx","message":"visibilitychange","data":{"hidden":false,"mem":103260203},"timestamp":1772908012812}
+{"sessionId":"b920db","hypothesisId":"A","location":"ShopPOSAnimation.tsx:goToScene","message":"scene change","data":{"from":1,"to":2},"timestamp":1772908013158}
+{"sessionId":"b920db","hypothesisId":"A","location":"ShopPOSAnimation.tsx:goToScene","message":"scene change","data":{"from":1,"to":2},"timestamp":1772908013227}
+{"sessionId":"b920db","hypothesisId":"A","location":"ShopPOSAnimation.tsx:goToScene","message":"scene change","data":{"from":4,"to":5},"timestamp":1772908014119}
+{"sessionId":"b920db","hypothesisId":"A","location":"ShopPOSAnimation.tsx:goToScene","message":"scene change","data":{"from":4,"to":5},"timestamp":1772908014119}
+{"sessionId":"b920db","hypothesisId":"E","location":"PortfolioBody.tsx","message":"visibilitychange","data":{"hidden":true,"mem":88939318},"timestamp":1772908014464}
+{"sessionId":"b920db","hypothesisId":"A","location":"ShopPOSAnimation.tsx:goToScene","message":"scene change","data":{"from":5,"to":6},"timestamp":1772908020312}
+{"sessionId":"b920db","hypothesisId":"A","location":"ShopPOSAnimation.tsx:goToScene","message":"scene change","data":{"from":5,"to":6},"timestamp":1772908020313}
+{"sessionId":"b920db","hypothesisId":"A","location":"ShopPOSAnimation.tsx:goToScene","message":"scene change","data":{"from":6,"to":7},"timestamp":1772908027012}
+{"sessionId":"b920db","hypothesisId":"A","location":"ShopPOSAnimation.tsx:goToScene","message":"scene change","data":{"from":6,"to":7},"timestamp":1772908027012}
+{"sessionId":"b920db","hypothesisId":"A","location":"ShopPOSAnimation.tsx:goToScene","message":"scene init","data":{"to":0},"timestamp":1772908030606}
+{"sessionId":"b920db","hypothesisId":"A","location":"ShopPOSAnimation.tsx:goToScene","message":"scene init","data":{"to":0},"timestamp":1772908030619}
+{"sessionId":"b920db","hypothesisId":"A","location":"ShopPOSAnimation.tsx:goToScene","message":"scene init","data":{"to":0},"timestamp":1772908031891}
+{"sessionId":"b920db","hypothesisId":"A","location":"ShopPOSAnimation.tsx:goToScene","message":"scene init","data":{"to":0},"timestamp":1772908031892}
+{"sessionId":"b920db","hypothesisId":"A","location":"ShopPOSAnimation.tsx:goToScene","message":"scene change","data":{"from":0,"to":1},"timestamp":1772908035726}
+{"sessionId":"b920db","hypothesisId":"A","location":"ShopPOSAnimation.tsx:goToScene","message":"scene change","data":{"from":0,"to":1},"timestamp":1772908035727}

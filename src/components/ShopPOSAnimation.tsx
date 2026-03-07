@@ -34,68 +34,9 @@ const TENANT_NODES = [
   { icon: "🥐", name: "Bakery Plus", meta: "19 sales" },
 ];
 
-function playWhoosh() {
-  if (typeof document === "undefined" || document.body.getAttribute("data-sound-enabled") !== "true") return;
-  try {
-    const ctx = new (window.AudioContext || (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext)();
-    if (ctx.state === "suspended") ctx.resume();
-    const gain = ctx.createGain();
-    gain.gain.setValueAtTime(0.06, ctx.currentTime);
-    gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.2);
-    const osc = ctx.createOscillator();
-    osc.type = "sine";
-    osc.frequency.setValueAtTime(400, ctx.currentTime);
-    osc.frequency.exponentialRampToValueAtTime(80, ctx.currentTime + 0.2);
-    osc.connect(gain);
-    gain.connect(ctx.destination);
-    osc.start(ctx.currentTime);
-    osc.stop(ctx.currentTime + 0.2);
-  } catch {
-    /* ignore */
-  }
-}
-
-function playChime() {
-  if (typeof document === "undefined" || document.body.getAttribute("data-sound-enabled") !== "true") return;
-  try {
-    const ctx = new (window.AudioContext || (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext)();
-    if (ctx.state === "suspended") ctx.resume();
-    const gain = ctx.createGain();
-    gain.gain.setValueAtTime(0.08, ctx.currentTime);
-    gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.12);
-    const osc = ctx.createOscillator();
-    osc.type = "sine";
-    osc.frequency.setValueAtTime(523, ctx.currentTime);
-    osc.frequency.setValueAtTime(659, ctx.currentTime + 0.03);
-    osc.frequency.setValueAtTime(784, ctx.currentTime + 0.06);
-    osc.connect(gain);
-    gain.connect(ctx.destination);
-    osc.start(ctx.currentTime);
-    osc.stop(ctx.currentTime + 0.12);
-  } catch {
-    /* ignore */
-  }
-}
-
-function playTick() {
-  if (typeof document === "undefined" || document.body.getAttribute("data-sound-enabled") !== "true") return;
-  try {
-    const ctx = new (window.AudioContext || (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext)();
-    if (ctx.state === "suspended") ctx.resume();
-    const gain = ctx.createGain();
-    gain.gain.setValueAtTime(0.04, ctx.currentTime);
-    gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.05);
-    const osc = ctx.createOscillator();
-    osc.type = "sine";
-    osc.frequency.setValueAtTime(600, ctx.currentTime);
-    osc.connect(gain);
-    gain.connect(ctx.destination);
-    osc.start(ctx.currentTime);
-    osc.stop(ctx.currentTime + 0.05);
-  } catch {
-    /* ignore */
-  }
-}
+function playWhoosh() {}
+function playChime() {}
+function playTick() {}
 
 const ANIMATE_IN_CONFIG: Record<number, { selectors: string[]; delays: number[] }> = {
   0: { selectors: [".line"], delays: [0, 180, 360] },
