@@ -1,6 +1,7 @@
 'use client'
 import { Suspense, useState, useEffect } from 'react'
 import dynamic from 'next/dynamic'
+import Link from 'next/link'
 import Loader from './Loader'
 import ShopPOSAnimation from './ShopPOSAnimation'
 import SoundToggle from './SoundToggle'
@@ -130,9 +131,9 @@ export default function PortfolioBody() {
       {/* Header */}
       <header className="header js-header">
         <div className="header_logo js-header_logo">
-          <a className="link-logo" aria-label="Home page" href="/">
+          <Link className="link-logo" aria-label="Home page" href="/">
             <img className="svg" src="/images/logo.gif" alt="logo" />
-          </a>
+          </Link>
         </div>
         <div className="header_menu">
           <ul className="header_menu_list ul__reset">
@@ -679,6 +680,7 @@ export default function PortfolioBody() {
                       <EarthErrorBoundary fallback={<div className="earth-canvas earth-canvas--loading" style={{ minHeight: '50vw' }} />}>
                         <Suspense fallback={<div className="earth-canvas earth-canvas--loading" style={{ minHeight: '50vw' }} />}>
                           <Earth />
+                          
                         </Suspense>
                       </EarthErrorBoundary>
                     )}
@@ -944,9 +946,16 @@ export default function PortfolioBody() {
                         >
                           MY MOTTO
                         </p>
-                            <p className="text-center motto_content_heading motto-light h1 mb-0">
+                            {/* Desktop: GOOD DESIGN IS HONEST */}
+                            <p className="text-center motto_content_heading motto-light h1 mb-0 d-none d-md-block">
                               <span className="d-block">GOOD DESIGN</span>
                               <span className="d-block">IS HONEST</span>
+                            </p>
+                            {/* Mobile: NOT ALL HONEST DESIGN IS GOOD (cream/white) */}
+                            <p className="text-center motto_content_heading motto-mobile h1 mb-0 d-block d-md-none">
+                              <span className="d-block">NOT ALL</span>
+                              <span className="d-block">HONEST DESIGN</span>
+                              <span className="d-block">IS GOOD</span>
                             </p>
                         <p className="desc text-center mb-0" style={mottoDescStyle}>
                           This UI design inspired by Minh Pham
@@ -1152,7 +1161,7 @@ export default function PortfolioBody() {
         <div
           className="layer layer__red js-masker"
           aria-hidden="true"
-          inert
+          inert={true}
           style={{ userSelect: 'none', pointerEvents: 'none' }}
         >
           <div className="container">

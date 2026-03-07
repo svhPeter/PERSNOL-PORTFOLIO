@@ -19,6 +19,7 @@ export default function SoundToggle() {
     if (!audio) return;
     const next = !isOn;
     setIsOn(next);
+    document.body.setAttribute("data-sound-enabled", next ? "true" : "false");
     if (next) {
       audio.muted = false;
       audio.play().catch(() => {});
