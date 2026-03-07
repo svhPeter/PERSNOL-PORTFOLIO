@@ -2,6 +2,7 @@
 import { Suspense, useState, useEffect } from 'react'
 import dynamic from 'next/dynamic'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import Loader from './Loader'
 import ShopPOSAnimation from './ShopPOSAnimation'
 import SoundToggle from './SoundToggle'
@@ -13,6 +14,7 @@ const Earth = dynamic(() => import('./Earth'), {
 })
 
 export default function PortfolioBody() {
+  const pathname = usePathname()
   const [mounted, setMounted] = useState(false)
   const [showPreloader, setShowPreloader] = useState(true)
   useEffect(() => { setMounted(true) }, [])
@@ -131,9 +133,15 @@ export default function PortfolioBody() {
       {/* Header */}
       <header className="header js-header">
         <div className="header_logo js-header_logo">
-          <Link className="link-logo" aria-label="Home page" href="/">
-            <img className="svg" src="/images/logo.gif" alt="logo" />
-          </Link>
+          {pathname === '/' ? (
+            <span className="link-logo" aria-hidden>
+              <img className="svg" src="/images/logo.gif" alt="logo" />
+            </span>
+          ) : (
+            <Link className="link-logo" aria-label="Home page" href="/">
+              <img className="svg" src="/images/logo.gif" alt="logo" />
+            </Link>
+          )}
         </div>
         <div className="header_menu">
           <ul className="header_menu_list ul__reset">
@@ -1210,24 +1218,24 @@ export default function PortfolioBody() {
               <div className="heading-mask">
                 <div className="heading-mask_el heading-mask_el__deep container_content">
                   <div className="row align-items-center">
-                    <div className="col-sm-6 offset-lg-2 offset-sm-1 col-12 d-sm-block d-none">
+                    <div className="col-sm-6 offset-lg-2 offset-sm-1 col-12 d-lg-block d-none">
                       <div className="simple-masking overflow-hidden">
                         <h2 className="reveal-pseudo h1 mb-0 text-dark" data-reveal="UI/UX" aria-hidden />
                       </div>
                     </div>
-                    <div className="col-lg-3 col-sm-4 col-12 text-dark d-lg-none d-block">
+                    <div className="col-lg-3 col-sm-4 col-12 text-dark d-none d-lg-block">
                       <p className="reveal-pseudo mb-0 desc text-dark" data-reveal="I design clean, functional interfaces that users actually enjoy using" aria-hidden />
                     </div>
                   </div>
                 </div>
                 <div className="heading-mask_el heading-mask_el__masking container_content">
                   <div className="row align-items-center">
-                    <div className="col-sm-6 offset-lg-2 offset-sm-1 col-12 d-sm-block d-none">
+                    <div className="col-sm-6 offset-lg-2 offset-sm-1 col-12 d-lg-block d-none">
                       <div className="simple-masking overflow-hidden">
                         <h2 className="reveal-pseudo h1 mb-0 text-dark" data-reveal="UI/UX" aria-hidden />
                       </div>
                     </div>
-                    <div className="col-lg-3 col-sm-4 col-12 text-dark d-lg-none d-block">
+                    <div className="col-lg-3 col-sm-4 col-12 text-dark d-none d-lg-block">
                       <p className="reveal-pseudo mb-0 desc" data-reveal="I design clean, functional interfaces that users actually enjoy using" aria-hidden />
                     </div>
                   </div>
@@ -1236,24 +1244,24 @@ export default function PortfolioBody() {
               <div className="heading-mask">
                 <div className="heading-mask_el heading-mask_el__deep container_content">
                   <div className="row align-items-center">
-                    <div className="col-sm-6 offset-lg-2 offset-sm-1 col-12 d-sm-block d-none">
+                    <div className="col-sm-6 offset-lg-2 offset-sm-1 col-12 d-lg-block d-none">
                       <div className="simple-masking overflow-hidden">
                         <h2 className="reveal-pseudo h1 mb-0 text-dark" data-reveal="Full Stack" aria-hidden />
                       </div>
                     </div>
-                    <div className="col-lg-3 col-sm-4 col-12 text-dark d-lg-none d-block">
+                    <div className="col-lg-3 col-sm-4 col-12 text-dark d-none d-lg-block">
                       <p className="reveal-pseudo mb-0 desc text-dark" data-reveal="I build production-ready apps with React, Next.js, PostgreSQL, and AI-assisted workflows." aria-hidden />
                     </div>
                   </div>
                 </div>
                 <div className="heading-mask_el heading-mask_el__masking container_content">
                   <div className="row align-items-center">
-                    <div className="col-sm-6 offset-lg-2 offset-sm-1 col-12 d-sm-block d-none">
+                    <div className="col-sm-6 offset-lg-2 offset-sm-1 col-12 d-lg-block d-none">
                       <div className="simple-masking overflow-hidden">
                         <h2 className="reveal-pseudo h1 mb-0 text-dark" data-reveal="Full Stack" aria-hidden />
                       </div>
                     </div>
-                    <div className="col-lg-3 col-sm-4 col-12 text-dark d-lg-none d-block">
+                    <div className="col-lg-3 col-sm-4 col-12 text-dark d-none d-lg-block">
                       <p className="reveal-pseudo mb-0 desc" data-reveal="I build production-ready apps with React, Next.js, PostgreSQL, and AI-assisted workflows." aria-hidden />
                     </div>
                   </div>
@@ -1262,24 +1270,24 @@ export default function PortfolioBody() {
               <div className="heading-mask">
                 <div className="heading-mask_el heading-mask_el__deep container_content">
                   <div className="row align-items-center">
-                    <div className="col-sm-6 offset-lg-2 offset-sm-1 col-12 d-sm-block d-none">
+                    <div className="col-sm-6 offset-lg-2 offset-sm-1 col-12 d-lg-block d-none">
                       <div className="simple-masking overflow-hidden">
                         <h2 className="reveal-pseudo h1 mb-0 text-dark" data-reveal="Flutter" aria-hidden />
                       </div>
                     </div>
-                    <div className="col-lg-3 col-sm-4 col-12 text-dark d-lg-none d-block">
+                    <div className="col-lg-3 col-sm-4 col-12 text-dark d-none d-lg-block">
                       <p className="reveal-pseudo mb-0 desc text-dark" data-reveal="I craft cross-platform mobile experiences that work everywhere" aria-hidden />
                     </div>
                   </div>
                 </div>
                 <div className="heading-mask_el heading-mask_el__masking container_content">
                   <div className="row align-items-center">
-                    <div className="col-sm-6 offset-lg-2 offset-sm-1 col-12 d-sm-block d-none">
+                    <div className="col-sm-6 offset-lg-2 offset-sm-1 col-12 d-lg-block d-none">
                       <div className="simple-masking overflow-hidden">
                         <h2 className="reveal-pseudo h1 mb-0 text-dark" data-reveal="Flutter" aria-hidden />
                       </div>
                     </div>
-                    <div className="col-lg-3 col-sm-4 col-12 text-dark d-lg-none d-block">
+                    <div className="col-lg-3 col-sm-4 col-12 text-dark d-none d-lg-block">
                       <p className="reveal-pseudo mb-0 desc" data-reveal="I craft cross-platform mobile experiences that work everywhere" aria-hidden />
                     </div>
                   </div>
@@ -1288,24 +1296,24 @@ export default function PortfolioBody() {
               <div className="heading-mask">
                 <div className="heading-mask_el heading-mask_el__deep container_content">
                   <div className="row align-items-center">
-                    <div className="col-sm-6 offset-lg-2 offset-sm-1 col-12 d-sm-block d-none">
+                    <div className="col-sm-6 offset-lg-2 offset-sm-1 col-12 d-lg-block d-none">
                       <div className="simple-masking overflow-hidden">
                         <h2 className="reveal-pseudo h1 mb-0 text-dark" data-reveal="Prompt Eng." aria-hidden />
                       </div>
                     </div>
-                    <div className="col-lg-3 col-sm-4 col-12 text-dark d-lg-none d-block">
+                    <div className="col-lg-3 col-sm-4 col-12 text-dark d-none d-lg-block">
                       <p className="reveal-pseudo mb-0 desc text-dark" data-reveal="Database modeling, REST API structuring, auth systems & multi-tenant data isolation." aria-hidden />
                     </div>
                   </div>
                 </div>
                 <div className="heading-mask_el heading-mask_el__masking container_content">
                   <div className="row align-items-center">
-                    <div className="col-sm-6 offset-lg-2 offset-sm-1 col-12 d-sm-block d-none">
+                    <div className="col-sm-6 offset-lg-2 offset-sm-1 col-12 d-lg-block d-none">
                       <div className="simple-masking overflow-hidden">
                         <h2 className="reveal-pseudo h1 mb-0 text-dark" data-reveal="Prompt Eng." aria-hidden />
                       </div>
                     </div>
-                    <div className="col-lg-3 col-sm-4 col-12 text-dark d-lg-none d-block">
+                    <div className="col-lg-3 col-sm-4 col-12 text-dark d-none d-lg-block">
                       <p className="reveal-pseudo mb-0 desc" data-reveal="Database modeling, REST API structuring, auth systems & multi-tenant data isolation." aria-hidden />
                     </div>
                   </div>
@@ -1314,24 +1322,24 @@ export default function PortfolioBody() {
               <div className="heading-mask">
                 <div className="heading-mask_el heading-mask_el__deep container_content">
                   <div className="row align-items-center">
-                    <div className="col-sm-6 offset-lg-2 offset-sm-1 col-12 d-sm-block d-none">
+                    <div className="col-sm-6 offset-lg-2 offset-sm-1 col-12 d-lg-block d-none">
                       <div className="simple-masking overflow-hidden">
                         <h2 className="reveal-pseudo h1 mb-0 text-dark" data-reveal="AI Tools" aria-hidden />
                       </div>
                     </div>
-                    <div className="col-lg-3 col-sm-4 col-12 text-dark d-lg-none d-block">
+                    <div className="col-lg-3 col-sm-4 col-12 text-dark d-none d-lg-block">
                       <p className="reveal-pseudo mb-0 desc text-dark" data-reveal="I leverage AI tools to design, structure, and deliver digital products efficiently" aria-hidden />
                     </div>
                   </div>
                 </div>
                 <div className="heading-mask_el heading-mask_el__masking container_content">
                   <div className="row align-items-center">
-                    <div className="col-sm-6 offset-lg-2 offset-sm-1 col-12 d-sm-block d-none">
+                    <div className="col-sm-6 offset-lg-2 offset-sm-1 col-12 d-lg-block d-none">
                       <div className="simple-masking overflow-hidden">
                         <h2 className="reveal-pseudo h1 mb-0 text-dark" data-reveal="AI Tools" aria-hidden />
                       </div>
                     </div>
-                    <div className="col-lg-3 col-sm-4 col-12 text-dark d-lg-none d-block">
+                    <div className="col-lg-3 col-sm-4 col-12 text-dark d-none d-lg-block">
                       <p className="reveal-pseudo mb-0 desc" data-reveal="I leverage AI tools to design, structure, and deliver digital products efficiently" aria-hidden />
                     </div>
                   </div>
@@ -1515,24 +1523,24 @@ export default function PortfolioBody() {
                   <div className="heading-mask">
                     <div className="heading-mask_el heading-mask_el__deep container_content">
                       <div className="row align-items-center">
-                        <div className="col-sm-6 offset-lg-2 offset-sm-1 col-12 d-sm-block d-none">
+                        <div className="col-sm-6 offset-lg-2 offset-sm-1 col-12 d-lg-block d-none">
                           <div className="simple-masking overflow-hidden">
                             <h2 className="reveal-pseudo h1 mb-0 none-break" data-reveal="SHOP-POS" aria-hidden />
                           </div>
                         </div>
-                        <div className="col-lg-3 col-sm-4 text-dark col-12 d-lg-none d-block">
+                        <div className="col-lg-3 col-sm-4 text-dark col-12 d-none d-lg-block">
                           <p className="reveal-pseudo mb-0 desc" data-reveal="Multi-tenant Coffee Shop Management System built with AI-driven development. POS, inventory, staff shifts, reporting & role-based auth." aria-hidden />
                         </div>
                       </div>
                     </div>
                     <div className="heading-mask_el heading-mask_el__masking">
                       <div className="row align-items-center">
-                        <div className="col-sm-6 offset-lg-2 offset-sm-1 col-12 d-sm-block d-none">
+                        <div className="col-sm-6 offset-lg-2 offset-sm-1 col-12 d-lg-block d-none">
                           <div className="simple-masking overflow-hidden">
                             <h2 className="reveal-pseudo h1 mb-0 none-break" data-reveal="SHOP-POS" aria-hidden />
                           </div>
                         </div>
-                        <div className="col-lg-3 col-sm-4 col-12 op-0 text-dark d-sm-none d-block">
+                        <div className="col-lg-3 col-sm-4 col-12 op-0 text-dark d-none d-lg-block">
                           <p className="reveal-pseudo mb-0 desc" data-reveal="Multi-tenant Coffee Shop Management System built with AI-driven development. POS, inventory, staff shifts, reporting & role-based auth." aria-hidden />
                         </div>
                       </div>
@@ -1543,24 +1551,24 @@ export default function PortfolioBody() {
                   <div className="heading-mask">
                     <div className="heading-mask_el heading-mask_el__deep container_content">
                       <div className="row align-items-center">
-                        <div className="col-sm-6 offset-lg-2 offset-sm-1 col-12 d-sm-block d-none">
+                        <div className="col-sm-6 offset-lg-2 offset-sm-1 col-12 d-lg-block d-none">
                           <div className="simple-masking overflow-hidden">
                             <h2 className="reveal-pseudo h1 mb-0 none-break" data-reveal="Portfolio & UI" aria-hidden />
                           </div>
                         </div>
-                        <div className="col-lg-3 col-sm-4 text-dark col-12 d-lg-none d-block">
+                        <div className="col-lg-3 col-sm-4 text-dark col-12 d-none d-lg-block">
                           <p className="reveal-pseudo mb-0 desc" data-reveal="Personal portfolio and UI/UX design projects. Clean, functional interfaces." aria-hidden />
                         </div>
                       </div>
                     </div>
                     <div className="heading-mask_el heading-mask_el__masking">
                       <div className="row align-items-center">
-                        <div className="col-sm-6 offset-lg-2 offset-sm-1 col-12 d-sm-block d-none">
+                        <div className="col-sm-6 offset-lg-2 offset-sm-1 col-12 d-lg-block d-none">
                           <div className="simple-masking overflow-hidden">
                             <h2 className="reveal-pseudo h1 mb-0 none-break" data-reveal="Portfolio & UI" aria-hidden />
                           </div>
                         </div>
-                        <div className="col-lg-3 col-sm-4 col-12 d-sm-none d-block">
+                        <div className="col-lg-3 col-sm-4 col-12 d-none d-lg-block">
                           <p className="reveal-pseudo mb-0 desc" data-reveal="Personal portfolio and UI/UX design projects. Clean, functional interfaces." aria-hidden />
                         </div>
                       </div>
@@ -1571,24 +1579,24 @@ export default function PortfolioBody() {
                   <div className="heading-mask">
                     <div className="heading-mask_el heading-mask_el__deep container_content">
                       <div className="row align-items-center">
-                        <div className="col-sm-6 offset-lg-2 offset-sm-1 col-12 d-sm-block d-none">
+                        <div className="col-sm-6 offset-lg-2 offset-sm-1 col-12 d-lg-block d-none">
                           <div className="simple-masking overflow-hidden">
                             <h2 className="reveal-pseudo h1 mb-0 none-break" data-reveal="AI-Buddy" aria-hidden />
                           </div>
                         </div>
-                        <div className="col-lg-3 col-sm-4 text-dark col-12 d-lg-none d-block">
+                        <div className="col-lg-3 col-sm-4 text-dark col-12 d-none d-lg-block">
                           <p className="reveal-pseudo mb-0 desc" data-reveal="AI-powered content and image compressor free online tool for creators. www.aibuddy.design/image-compressor" aria-hidden />
                         </div>
                       </div>
                     </div>
                     <div className="heading-mask_el heading-mask_el__masking">
                       <div className="row align-items-center">
-                        <div className="col-sm-6 offset-lg-2 offset-sm-1 col-12 d-sm-block d-none">
+                        <div className="col-sm-6 offset-lg-2 offset-sm-1 col-12 d-lg-block d-none">
                           <div className="simple-masking overflow-hidden">
                             <h2 className="reveal-pseudo h1 mb-0 none-break" data-reveal="AI-Buddy" aria-hidden />
                           </div>
                         </div>
-                        <div className="col-lg-3 col-sm-4 col-12 d-sm-none d-block">
+                        <div className="col-lg-3 col-sm-4 col-12 d-none d-lg-block">
                           <p className="reveal-pseudo mb-0 desc" data-reveal="AI-powered content and image compressor free online tool for creators. www.aibuddy.design/image-compressor" aria-hidden />
                         </div>
                       </div>
@@ -1599,24 +1607,24 @@ export default function PortfolioBody() {
                   <div className="heading-mask">
                     <div className="heading-mask_el heading-mask_el__deep container_content">
                       <div className="row align-items-center">
-                        <div className="col-sm-6 offset-lg-2 offset-sm-1 col-12 d-sm-block d-none">
+                        <div className="col-sm-6 offset-lg-2 offset-sm-1 col-12 d-lg-block d-none">
                           <div className="simple-masking overflow-hidden">
                             <h2 className="reveal-pseudo h1 mb-0 none-break" data-reveal="MODERN WEB APPS" aria-hidden />
                           </div>
                         </div>
-                        <div className="col-lg-3 col-sm-4 text-dark col-12 d-lg-none d-block">
+                        <div className="col-lg-3 col-sm-4 text-dark col-12 d-none d-lg-block">
                           <p className="reveal-pseudo mb-0 desc" data-reveal="Custom full-stack web applications built with Next.js, React, and cloud infrastructure." aria-hidden />
                         </div>
                       </div>
                     </div>
                     <div className="heading-mask_el heading-mask_el__masking">
                       <div className="row align-items-center">
-                        <div className="col-sm-6 offset-lg-2 offset-sm-1 col-12 d-sm-block d-none">
+                        <div className="col-sm-6 offset-lg-2 offset-sm-1 col-12 d-lg-block d-none">
                           <div className="simple-masking overflow-hidden">
                             <h2 className="reveal-pseudo h1 mb-0 none-break" data-reveal="MODERN WEB APPS" aria-hidden />
                           </div>
                         </div>
-                        <div className="col-lg-3 col-sm-4 col-12 d-sm-none d-block">
+                        <div className="col-lg-3 col-sm-4 col-12 d-none d-lg-block">
                           <p className="reveal-pseudo mb-0 desc" data-reveal="Custom full-stack web applications built with Next.js, React, and cloud infrastructure." aria-hidden />
                         </div>
                       </div>
