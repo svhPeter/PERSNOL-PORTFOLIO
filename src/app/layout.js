@@ -1,6 +1,13 @@
 import Script from 'next/script';
 import './globals.css';
 
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
+  viewportFit: 'cover',
+};
+
 export const metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://abdulsami.dev'),
   title: 'Abdul Sami - Full Stack Developer & UI/UX Designer',
@@ -95,25 +102,36 @@ export default function RootLayout({ children }) {
         </Script>
         <Script src="/js/email-decode.min.js" strategy="afterInteractive" />
         <Script id="preloader-scroll" strategy="afterInteractive">
-          {`
-            (function(){
-              var startBtn = document.getElementById('js-page-loading_start');
-              if (startBtn) setTimeout(function(){ startBtn.click(); }, 3000);
-              setTimeout(function(){
-                document.documentElement.style.setProperty('overflow-y','auto','important');
-                document.body.style.setProperty('overflow-y','auto','important');
-                document.addEventListener('wheel', function(e){
-                  var h = document.documentElement.scrollHeight - window.innerHeight;
-                  if (h < 50) return;
-                  var top = window.scrollY || document.documentElement.scrollTop;
-                  if ((e.deltaY > 0 && top < h - 2) || (e.deltaY < 0 && top > 2)) {
-                    window.scrollBy(0, e.deltaY);
-                    e.preventDefault();
-                  }
-                }, { passive: false });
-              }, 4000);
-            })();
-          `}
+          {`(function(){
+            function enableScroll(){
+              document.documentElement.style.setProperty('overflow-y','auto','important');
+              document.body.style.setProperty('overflow-y','auto','important');
+              document.documentElement.style.setProperty('-webkit-overflow-scrolling','touch','important');
+              document.body.style.setProperty('-webkit-overflow-scrolling','touch','important');
+              document.addEventListener('wheel', function(e){
+                var h = document.documentElement.scrollHeight - window.innerHeight;
+                if (h < 50) return;
+                var top = window.scrollY || document.documentElement.scrollTop;
+                if ((e.deltaY > 0 && top < h - 2) || (e.deltaY < 0 && top > 2)) {
+                  window.scrollBy(0, e.deltaY);
+                  e.preventDefault();
+                }
+              }, { passive: false });
+            }
+            var startBtn = document.getElementById('js-page-loading_start');
+            var triggered = false;
+            function trigger(){
+              if (triggered) return;
+              triggered = true;
+              enableScroll();
+            }
+            if (startBtn) {
+              startBtn.addEventListener('click', trigger);
+              setTimeout(function(){ if (startBtn) startBtn.click(); }, 3000);
+            }
+            var isTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+            setTimeout(trigger, isTouch ? 500 : 4000);
+          })();`}
         </Script>
         {children}
       </body>

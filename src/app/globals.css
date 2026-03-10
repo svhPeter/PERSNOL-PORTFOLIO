@@ -8,6 +8,14 @@ body, html {
   overscroll-behavior-y: none !important;
 }
 
+/* Mobile: enable native touch scrolling and overscroll */
+@media (hover: none) and (pointer: coarse) {
+  html, body {
+    -webkit-overflow-scrolling: touch !important;
+    touch-action: pan-y pinch-zoom;
+  }
+}
+
 body::-webkit-scrollbar {
   display: none;
 }
@@ -1696,7 +1704,7 @@ body[data-cursor-contract] .layer__red {
 @media (max-width: 767px) {
   .contact {
     padding-top: 4rem !important;
-    padding-bottom: 9rem !important; /* space above fixed PRESS button */
+    padding-bottom: calc(9rem + env(safe-area-inset-bottom, 0px)) !important; /* space above fixed SCROLL button */
   }
 }
 
@@ -1951,7 +1959,7 @@ body[data-cursor-contract] .layer__red {
     opacity: 1 !important;
   }
 
-  /* Larger touch target for PRESS button */
+  /* Larger touch target for SCROLL button */
   .btn_clipPath {
     min-width: 48px;
     min-height: 48px;

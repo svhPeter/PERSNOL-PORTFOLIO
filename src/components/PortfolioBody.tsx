@@ -728,7 +728,7 @@ export default function PortfolioBody() {
                         </div>
                         <div className="col-lg-3 col-sm-4 text-dark d-sm-block d-none">
                           <p className="mb-0 desc">
-                            Multi-tenant Coffee Shop Management System built
+                            Multi-tenant for coffee shop, cafe, retail & more built
                             with AI-driven development. POS, inventory, staff
                             shifts, reporting & role-based auth.
                           </p>
@@ -966,7 +966,7 @@ export default function PortfolioBody() {
                               <span className="d-block">IS GOOD</span>
                             </p>
                         <p className="desc text-center mb-0" style={mottoDescStyle}>
-                          This UI design inspired by Minh Pham
+                          sam
                         </p>
                       </div>
                     </div>
@@ -1157,7 +1157,7 @@ export default function PortfolioBody() {
         <button id="js-btn_clipPath" className="btn_clipPath">
           <span className="btn_clipPath_inner">
             <span className="btn_clipPath_image btn_clipPath_image__ring">
-              <img src="/images/ic-text-ring.svg" alt="ic-text-ring" />{" "}
+              <img src="/images/ic-text-ring.svg" alt="Scroll" />{" "}
             </span>
             <span className="btn_clipPath_image btn_clipPath_image__touch">
               <img src="/images/ic-touch.svg" alt="ic-touch" />
@@ -1529,7 +1529,7 @@ export default function PortfolioBody() {
                           </div>
                         </div>
                         <div className="col-lg-3 col-sm-4 text-dark col-12 d-none d-lg-block">
-                          <p className="reveal-pseudo mb-0 desc" data-reveal="Multi-tenant Coffee Shop Management System built with AI-driven development. POS, inventory, staff shifts, reporting & role-based auth." aria-hidden />
+                          <p className="reveal-pseudo mb-0 desc" data-reveal="Multi-tenant for coffee shop, cafe, retail & more built with AI-driven development. POS, inventory, staff shifts, reporting & role-based auth." aria-hidden />
                         </div>
                       </div>
                     </div>
@@ -1541,7 +1541,7 @@ export default function PortfolioBody() {
                           </div>
                         </div>
                         <div className="col-lg-3 col-sm-4 col-12 op-0 text-dark d-none d-lg-block">
-                          <p className="reveal-pseudo mb-0 desc" data-reveal="Multi-tenant Coffee Shop Management System built with AI-driven development. POS, inventory, staff shifts, reporting & role-based auth." aria-hidden />
+                          <p className="reveal-pseudo mb-0 desc" data-reveal="Multi-tenant for coffee shop, cafe, retail & more built with AI-driven development. POS, inventory, staff shifts, reporting & role-based auth." aria-hidden />
                         </div>
                       </div>
                     </div>
@@ -1724,7 +1724,7 @@ export default function PortfolioBody() {
                         <span className="reveal-pseudo d-block" data-reveal="IS GOOD" aria-hidden />
                       </p>
                       <p className="desc text-center mb-0 text-dark">
-                        <span className="reveal-pseudo" data-reveal="This UI design inspired by Minh Pham" aria-hidden />
+                        <span className="reveal-pseudo" data-reveal="sam" aria-hidden />
                       </p>
                     </div>
                   </div>
