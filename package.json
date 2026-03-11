@@ -13,14 +13,20 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@react-three/fiber": "8.18.0",
+    "@heroicons/react": "^2.2.0",
+    "@react-three/drei": "^10.7.7",
+    "@react-three/fiber": "^9.5.0",
+    "clsx": "^2.1.1",
     "framer-motion": "^10.18.0",
     "framer-motion-3d": "^10.18.0",
+    "maath": "^0.10.8",
     "next": "^15.5.12",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "styled-components": "^6.3.11",
-    "three": "^0.156.1"
+    "tailwind-merge": "^3.5.0",
+    "tailwindcss": "^4.2.1",
+    "three": "^0.159.0"
   },
   "devDependencies": {
     "@types/node": "^25.3.3",
@@ -30,6 +36,7 @@
     "autoprefixer": "10.4.15",
     "eslint": "8.49.0",
     "eslint-config-next": "^15.5.12",
-    "postcss": "8.4.29"
+    "postcss": "8.4.29",
+    "typescript": "5.9.3"
   }
 }

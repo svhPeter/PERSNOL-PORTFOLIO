@@ -93,13 +93,6 @@ export default function RootLayout({ children }) {
             }
           })();`}
         </Script>
-        <Script id="bundle-loader" strategy="afterInteractive">
-          {`(function(){
-            function load(url,cb){try{var s=document.createElement('script');s.src=url;s.async=true;s.onload=cb||function(){};s.onerror=function(){};var t=document.body||document.documentElement;if(t)t.appendChild(s);}catch(e){if(typeof console!=='undefined')console.warn('Bundle load failed:',e);}}
-            function go(){if(!document.body){setTimeout(go,50);return;}setTimeout(function(){load('/js/vendor.bundle.js',function(){load('/js/app.bundle.js');});},100);}
-            if(document.readyState==='complete')go();else window.addEventListener('load',go);
-          })();`}
-        </Script>
         <Script src="/js/email-decode.min.js" strategy="afterInteractive" />
         <Script id="preloader-scroll" strategy="afterInteractive">
           {`(function(){

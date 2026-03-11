@@ -272,9 +272,16 @@ export default function ShopPOSAnimation() {
     return () => window.removeEventListener("keydown", onKey);
   }, [goToScene, togglePlay]);
 
-  const sparklePositions = useRef(
-    Array.from({ length: 20 }, () => ({ left: `${Math.random() * 100}%`, top: `${Math.random() * 100}%`, delay: Math.random() * 0.5 }))
-  ).current;
+  /* Fixed positions to avoid hydration mismatch (Math.random differs on server vs client) */
+  const sparklePositions = useRef([
+    { left: "12%", top: "18%", delay: 0 }, { left: "85%", top: "22%", delay: 0.05 }, { left: "45%", top: "8%", delay: 0.1 },
+    { left: "72%", top: "65%", delay: 0.12 }, { left: "8%", top: "78%", delay: 0.15 }, { left: "92%", top: "42%", delay: 0.08 },
+    { left: "28%", top: "55%", delay: 0.2 }, { left: "58%", top: "88%", delay: 0.18 }, { left: "38%", top: "32%", delay: 0.06 },
+    { left: "65%", top: "12%", delay: 0.22 }, { left: "5%", top: "45%", delay: 0.1 }, { left: "95%", top: "68%", delay: 0.14 },
+    { left: "22%", top: "85%", delay: 0.25 }, { left: "78%", top: "35%", delay: 0.16 }, { left: "52%", top: "48%", delay: 0.04 },
+    { left: "15%", top: "28%", delay: 0.2 }, { left: "88%", top: "78%", delay: 0.12 }, { left: "35%", top: "62%", delay: 0.08 },
+    { left: "68%", top: "25%", delay: 0.18 }, { left: "42%", top: "92%", delay: 0.15 },
+  ]).current;
 
   return (
     <div className="shop-pos-animation" ref={containerRef}>

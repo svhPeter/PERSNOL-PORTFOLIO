@@ -1,5 +1,5 @@
 'use client'
-import { Suspense, useState, useEffect } from 'react'
+import { Suspense, useState, useEffect, useRef } from 'react'
 import dynamic from 'next/dynamic'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
@@ -28,6 +28,33 @@ export default function PortfolioBody() {
       clearTimeout(t)
     }
   }, [])
+
+  // Pause background videos when off-screen to reduce lag
+  const heroRef = useRef<HTMLDivElement>(null)
+  const skillsRef = useRef<HTMLDivElement>(null)
+  useEffect(() => {
+    if (!mounted) return
+    const sections = [
+      { el: heroRef.current, videoSelector: '.hero_bg-video' },
+      { el: skillsRef.current, videoSelector: '.work_bg-video' },
+    ].filter((s) => s.el) as { el: HTMLElement; videoSelector: string }[]
+
+    const observers: IntersectionObserver[] = []
+    sections.forEach(({ el, videoSelector }) => {
+      const video = el.querySelector<HTMLVideoElement>(videoSelector)
+      if (!video) return
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) video.play().catch(() => {})
+          else video.pause()
+        },
+        { rootMargin: '100px', threshold: 0.01 }
+      )
+      observer.observe(el)
+      observers.push(observer)
+    })
+    return () => observers.forEach((o) => o.disconnect())
+  }, [mounted])
 
   const pageLoadingStyle = {
     position: "fixed" as const,
@@ -191,9 +218,12 @@ export default function PortfolioBody() {
           <div className="container">
             {/* Hero & About section */}
             <div id="about">
-              <div className="hero">
+              <div className="hero" ref={heroRef}>
                 <div className="hero_bg">
-                  <div style={sectionBgStyle} aria-hidden />
+                  <video autoPlay muted loop playsInline preload="metadata" className="hero_bg-video" aria-hidden>
+                    <source src="/video/blackhole.webm" type="video/webm" />
+                  </video>
+                  <div className="hero_bg-fallback" style={sectionBgStyle} aria-hidden />
                 </div>
                 <div className="hero_content">
                   <div className="row justify-content-center">
@@ -463,9 +493,6 @@ export default function PortfolioBody() {
             <div id="work">
               <div className="work" id="work">
                 <div className="row work_experience">
-                  <div className="work_bg">
-                    <div style={sectionBgStyle} aria-hidden />
-                  </div>
                   <div className="col-lg-8 col-sm-10 offset-lg-2 offset-sm-1 col-12">
                     <div className="work_content container_content js-cursor-extend">
                       <p className="work_content_label body-text text-uppercase">
@@ -483,8 +510,15 @@ export default function PortfolioBody() {
                   </div>
                 </div>
 
-                {/* Work history */}
-                <div className="work_history">
+                {/* Skills section: Skills heading → Graphic Designer (with skills-bg video) */}
+                <div className="work_skills_section" ref={skillsRef}>
+                  <div className="work_bg">
+                    <video autoPlay muted loop playsInline preload="metadata" className="work_bg-video" aria-hidden>
+                      <source src="/video/skills-bg.webm" type="video/webm" />
+                    </video>
+                    <div className="work_bg-fallback" style={sectionBgStyle} aria-hidden />
+                  </div>
+                  <div className="work_history">
                   <div className="row work_heading work_history_heading">
                     <div className="col-lg-8 col-sm-10 offset-lg-2 offset-sm-1 col-12">
                       <p className="work_content_label container_content body-text text-uppercase mb-0">
@@ -656,6 +690,7 @@ export default function PortfolioBody() {
                       </div>
                     </div>
                   </div>
+                </div>
                 </div>
               </div>
             </div>
