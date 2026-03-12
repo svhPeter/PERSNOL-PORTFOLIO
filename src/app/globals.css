@@ -1640,12 +1640,12 @@ body[data-cursor-contract] .layer__red {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(
+  /* background: linear-gradient(
     to bottom,
-    rgba(13, 13, 13, 0.4) 0%,
-    rgba(13, 13, 13, 0.6) 10%,
-    rgba(12, 12, 12, 0.2) 10%
-  );
+    rgba(13, 13, 13, 0.25) 0%,
+    rgba(13, 13, 13, 0.5) 50%,
+    rgba(13, 13, 13, 0.45) 100%
+  ); */
   z-index: 1;
   pointer-events: none;
 }
@@ -1671,7 +1671,8 @@ body[data-cursor-contract] .layer__red {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: grayscale(1);
+  object-position: center 30%; /* Shift up so video fills top, reduces blank feel */
+  filter: grayscale(1.5);
   z-index: 0;
   transform: translateZ(0);
   will-change: transform;
@@ -1733,7 +1734,7 @@ body[data-cursor-contract] .layer__red {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: grayscale(1);
+  filter: grayscale(1.5);
   z-index: 0;
   transform: translateZ(0);
   will-change: transform;
@@ -1821,6 +1822,84 @@ body[data-cursor-contract] .layer__red {
     padding-top: 4rem !important;
     padding-bottom: calc(9rem + env(safe-area-inset-bottom, 0px)) !important; /* space above fixed SCROLL button */
   }
+}
+
+/* Work Experience cards (hover to expand) */
+.work-exp-cards {
+  margin-top: 0.5rem;
+}
+.work-exp-card {
+  width: 100%;
+  max-width: 560px;
+  min-height: 260px;
+  border-radius: 4px;
+  background: #141414;
+  display: flex;
+  gap: 6px;
+  padding: 0.5em;
+}
+.work-exp-card-segment {
+  height: 100%;
+  min-height: 240px;
+  flex: 1;
+  overflow: hidden;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: flex 0.6s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.3s ease;
+  background: #141414;
+  border: 1px solid #b7ab98;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.work-exp-card-segment:hover {
+  flex: 4;
+  border-color: rgba(183, 171, 152, 0.8);
+}
+.work-exp-card-segment > span {
+  min-width: 12em;
+  padding: 0.5em;
+  text-align: center;
+  transform: rotate(-90deg);
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), text-align 0.4s ease;
+  text-transform: uppercase;
+  color: #b7ab98;
+  letter-spacing: 0.1em;
+}
+.work-exp-card-segment:hover > span {
+  transform: rotate(0);
+  text-align: left;
+}
+.work-exp-card-segment .work-exp-card-label {
+  display: inline;
+  transition: opacity 0.4s ease;
+}
+.work-exp-card-segment .work-exp-card-detail {
+  display: none;
+  animation: work-exp-fadeIn 0.4s ease forwards;
+}
+.work-exp-card-segment:hover .work-exp-card-label {
+  display: none;
+}
+.work-exp-card-segment:hover .work-exp-card-detail {
+  display: block;
+}
+@keyframes work-exp-fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.work-exp-card-detail strong {
+  color: #f1f5f9;
+  font-size: 1rem;
+}
+.work-exp-card-detail small {
+  color: #8a8380;
+  font-size: 0.8rem;
+}
+.work-exp-card-desc {
+  color: #b7ab98;
+  font-size: 0.9rem;
+  font-weight: 400;
 }
 
 .client_list {
@@ -1992,9 +2071,15 @@ body[data-cursor-contract] .layer__red {
     height: auto !important;
   }
 
-  /* Gap between "My focus" heading and SHOP-POS etc. on mobile */
+  /* Gap between "My focus" heading and SHOP-POS etc. on mobile - clean feel */
+  .client .client_info {
+    padding-bottom: 7rem;
+  }
   .client .client_list {
     margin-top: 2rem;
+  }
+  .client .client_list_inner {
+    padding-top: 1.5rem;
   }
 
   /* Projects / client_list: prevent overlap, allow wrap */
@@ -2054,6 +2139,29 @@ body[data-cursor-contract] .layer__red {
     color: #b7ab98 !important;
     opacity: 1 !important;
     font-size: 1rem !important;
+  }
+
+  /* Work Experience cards - mobile */
+  .work-exp-card {
+    flex-direction: column;
+    max-width: 100%;
+    min-height: auto;
+  }
+  .work-exp-card-segment {
+    min-height: 56px;
+  }
+  .work-exp-card-segment > span {
+    transform: rotate(0);
+    text-align: left;
+    min-width: auto;
+  }
+  .work-exp-card-segment:active .work-exp-card-label,
+  .work-exp-card-segment:focus .work-exp-card-label {
+    display: none;
+  }
+  .work-exp-card-segment:active .work-exp-card-detail,
+  .work-exp-card-segment:focus .work-exp-card-detail {
+    display: block;
   }
 
   /* Work Experience (testimonials) layout on mobile */

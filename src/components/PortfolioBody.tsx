@@ -7,6 +7,7 @@ import Loader from './Loader'
 import ShopPOSAnimation from './ShopPOSAnimation'
 import SoundToggle from './SoundToggle'
 import EarthErrorBoundary from './EarthErrorBoundary'
+import WorkExperienceCards from './WorkExperienceCards'
 
 const Earth = dynamic(() => import('./Earth'), {
   ssr: false,
@@ -29,7 +30,7 @@ export default function PortfolioBody() {
     }
   }, [])
 
-  // Pause background videos when off-screen to reduce lag
+  // Pause background videos when off-screen; resume on tab focus; loop fallback
   const heroRef = useRef<HTMLDivElement>(null)
   const skillsRef = useRef<HTMLDivElement>(null)
   useEffect(() => {
@@ -39,21 +40,61 @@ export default function PortfolioBody() {
       { el: skillsRef.current, videoSelector: '.work_bg-video' },
     ].filter((s) => s.el) as { el: HTMLElement; videoSelector: string }[]
 
+    const tryPlay = (v: HTMLVideoElement) => {
+      if (document.visibilityState === 'visible') v.play().catch(() => {})
+    }
+
     const observers: IntersectionObserver[] = []
+    const visibilityCleanup: (() => void)[] = []
+
+    const cleanupFns: (() => void)[] = []
     sections.forEach(({ el, videoSelector }) => {
       const video = el.querySelector<HTMLVideoElement>(videoSelector)
       if (!video) return
+
+      // IntersectionObserver: pause when off-screen, play when visible
       const observer = new IntersectionObserver(
         ([entry]) => {
-          if (entry.isIntersecting) video.play().catch(() => {})
+          if (entry.isIntersecting) tryPlay(video)
           else video.pause()
         },
         { rootMargin: '100px', threshold: 0.01 }
       )
       observer.observe(el)
       observers.push(observer)
+
+      const onEnded = () => {
+        video.currentTime = 0
+        tryPlay(video)
+      }
+      const onStalled = () => tryPlay(video)
+      video.addEventListener('ended', onEnded)
+      video.addEventListener('stalled', onStalled)
+      cleanupFns.push(() => {
+        video.removeEventListener('ended', onEnded)
+        video.removeEventListener('stalled', onStalled)
+      })
     })
-    return () => observers.forEach((o) => o.disconnect())
+
+    // Page Visibility: resume video when user returns to tab
+    const onVisibilityChange = () => {
+      if (document.visibilityState !== 'visible') return
+      sections.forEach(({ el, videoSelector }) => {
+        const video = el?.querySelector<HTMLVideoElement>(videoSelector)
+        if (!video) return
+        const rect = el!.getBoundingClientRect()
+        const inView = rect.top < window.innerHeight && rect.bottom > 0
+        if (inView) tryPlay(video)
+      })
+    }
+    document.addEventListener('visibilitychange', onVisibilityChange)
+    visibilityCleanup.push(() => document.removeEventListener('visibilitychange', onVisibilityChange))
+
+    return () => {
+      observers.forEach((o) => o.disconnect())
+      visibilityCleanup.forEach((fn) => fn())
+      cleanupFns.forEach((fn) => fn())
+    }
   }, [mounted])
 
   const pageLoadingStyle = {
@@ -929,32 +970,7 @@ export default function PortfolioBody() {
                   <p className="testimonials_content_label container_content body-text text-uppercase mb-4">
                     Work Experience
                   </p>
-                  <div className="work-exp-list">
-                    <div className="mb-4">
-                      <p className="h4 mb-1">
-                        AI-Assisted Full Stack Developer
-                      </p>
-                      <p className="desc mb-0">Project Based — 2026</p>
-                      <p className="sub-content mt-1">
-                        React, Next.js, PostgreSQL, Prisma. Rapid MVP delivery
-                        with AI-assisted workflows.
-                      </p>
-                    </div>
-                    <div className="mb-4">
-                      <p className="h4 mb-1">Graphic Designer</p>
-                      <p className="desc mb-0">
-                        Freelance (Twitch Streamers) — 2021–2024
-                      </p>
-                      <p className="sub-content mt-1">
-                        Visual design for streamers and content creators.
-                      </p>
-                    </div>
-                    <div>
-                      <p className="desc mb-0">
-                        References available upon request.
-                      </p>
-                    </div>
-                  </div>
+                  <WorkExperienceCards />
                 </div>
                 <div className="col-lg-2 col-12 d-flex justify-content-center align-items-start">
                   <div className="work-exp-visual" style={workExpVisualStyle}>
